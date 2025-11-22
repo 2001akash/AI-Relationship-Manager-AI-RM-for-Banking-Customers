@@ -217,3 +217,21 @@ All insights, recommendations, and summaries are generated for demonstration pur
 
 ---
 
+## 🚀 Live Demo
+
+Try the AI Relationship Manager here:
+
+🔗 **Frontend (Vercel):**  
+https://ai-relationship-manager-ai-rm-for-b.vercel.app/
+
+🔗 **Backend API (Railway):**  
+https://ai-rm-backend-production.up.railway.app/docs
+
+> Note: The backend is connected to mock financial data for demonstration purposes.
+
+---
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Now-brightgreen)](https://ai-relationship-manager-ai-rm-for-b.vercel.app/)
+---
+
+

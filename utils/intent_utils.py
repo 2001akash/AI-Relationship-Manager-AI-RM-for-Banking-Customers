@@ -7,7 +7,7 @@ def detect_intent(query: str) -> str:
     if q in ["hi", "hello", "hey", "hi!", "hello!"]:
         return "greeting"
 
-    if q in ["bye", "goodbye", "see you", "see ya", "bye!", "good night", "goodnight"]:
+    if q in ["bye", "byy","goodbye", "see you", "see ya", "bye!", "good night", "goodnight"]:
         return "farewell"
 
     if q in ["thanks", "thank you", "thankyou", "thx"]:
