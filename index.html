@@ -117,7 +117,6 @@
 <script>
   const API_URL = "https://ai-rm-backend-production.up.railway.app/chat";
 
-
   function addMessage(text, sender) {
     const messagesDiv = document.getElementById("messages");
     const msg = document.createElement("div");
@@ -147,6 +146,14 @@
     const query = input.value.trim();
     if (!query) return;
 
+    // ✅ CLEAR CHAT FEATURE
+    if (query.toLowerCase() === "clear") {
+      document.getElementById("messages").innerHTML = "";
+      addMessage("Chat cleared.", "bot");
+      input.value = "";
+      return;
+    }
+
     addMessage(query, "user");
     input.value = "";
 
@@ -165,11 +172,11 @@
       addMessage(data.reply, "bot");
     } catch (err) {
       removeTyping();
-      addMessage("⚠️ Error: Could not reach AI-RM backend.", "bot");
+      addMessage("Error: Could not reach AI-RM backend.", "bot");
     }
   }
 
-  // Enable send on Enter key
+  // Send on Enter
   document.getElementById("userInput").addEventListener("keydown", function(e) {
     if (e.key === "Enter") sendMessage();
   });
