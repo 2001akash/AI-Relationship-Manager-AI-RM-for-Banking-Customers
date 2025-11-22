@@ -42,6 +42,33 @@ def chat(request: ChatRequest):
     query = request.query.strip()
     intent = detect_intent(query)
 
+    # -------------------------
+    # SMALL TALK RESPONSES
+    # -------------------------
+    if intent == "greeting":
+        return ChatResponse(
+            reply="Hello! How can I assist you today? 😊",
+            intent="small_talk",
+            meta={}
+        )
+
+    if intent == "farewell":
+        return ChatResponse(
+            reply="Goodbye! Have a great day ahead 😊",
+            intent="small_talk",
+            meta={}
+        )
+
+    if intent == "thanks":
+        return ChatResponse(
+            reply="You're welcome! Happy to help anytime 😊",
+            intent="small_talk",
+            meta={}
+        )
+
+    # -------------------------
+    # MAIN INTENTS
+    # -------------------------
     if intent == "transaction_insights":
         return handle_transaction_insights(query)
 
@@ -54,12 +81,15 @@ def chat(request: ChatRequest):
     elif intent == "smart_summary":
         return handle_smart_summary(query)
 
-    else:
-        return ChatResponse(
-            reply="Hi! How can I assist you with your finances?",
-            intent="small_talk",
-            meta={}
-        )
+    # -------------------------
+    # FALLBACK
+    # -------------------------
+    return ChatResponse(
+        reply="I'm here to assist with your financial questions!",
+        intent="small_talk",
+        meta={}
+    )
+
 
 
 # ===========================
