@@ -9,8 +9,6 @@ services:
     buildCommand: "pip install -r requirements.txt"
     startCommand: "uvicorn main:app --host=0.0.0.0 --port=$PORT"
     autoDeploy: true
-
-    # root of your project (leave as .)
     rootDir: .
 
     envVars:
@@ -20,9 +18,9 @@ services:
   # ===========================
   # 2) Static Frontend (index.html)
   # ===========================
-  - type: static_site
+  - type: static
     name: ai-rm-frontend
     rootDir: .
-    buildCommand: ""          # no build step, plain HTML
+    buildCommand: ""          # plain HTML, no build needed
     publishPath: "."          # index.html is in repo root
     autoDeploy: true
