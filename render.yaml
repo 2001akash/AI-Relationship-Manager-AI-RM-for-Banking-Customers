@@ -1,26 +1,9 @@
 services:
-  # ===========================
-  # 1) FastAPI Backend Service
-  # ===========================
   - type: web
     name: ai-rm-backend
     env: python
     region: oregon
+    rootDir: .
     buildCommand: "pip install -r requirements.txt"
     startCommand: "uvicorn main:app --host=0.0.0.0 --port=$PORT"
-    autoDeploy: true
-    rootDir: .
-
-    envVars:
-      - key: PYTHONUNBUFFERED
-        value: "1"
-
-  # ===========================
-  # 2) Static Frontend (index.html)
-  # ===========================
-  - type: static
-    name: ai-rm-frontend
-    rootDir: .
-    buildCommand: ""          # plain HTML, no build needed
-    publishPath: "."          # index.html is in repo root
     autoDeploy: true
